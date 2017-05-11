@@ -42,6 +42,7 @@
             this.AddBtn.TabIndex = 0;
             this.AddBtn.Text = "ADD";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // SelectBtn
             // 
