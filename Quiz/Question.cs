@@ -8,15 +8,15 @@ namespace Quiz
 {
     public class Question
     {
-        public int ID;
+        public int ID { get; set; }
 
-        public string Text;
+        public string Text { get; set; }
 
-        public string A;
-        public string B;
-        public string C;
-        public string D;
+        public string A { get; set; }
+        public string B { get; set; }
+        public string C { get; set; }
+        public string D { get; set; }
 
-        public int Correct;
+        public int Correct { get; set; }
     }
 }

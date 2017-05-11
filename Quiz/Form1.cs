@@ -98,16 +98,67 @@ namespace Quiz
             }
         }
 
-        List<T> LoadAll(string table)
+        List<Player> LoadPlayers()
         {
-            List<T> list = new List<T>;
+            List<Player> list = new List<Player>();
             try
             {
+                string sql = "select * from Player";
+                SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
 
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Player p = new Player();
+
+                    // "ID", "Name", "WinPoints", "LostPoints", "Games" 
+                    p.ID = Int32.Parse(reader["ID"].ToString());
+                    p.Name = reader["Name"].ToString();
+                    p.WinPoints = Int32.Parse(reader["WinPoints"].ToString());
+                    p.LostPoints = Int32.Parse(reader["Games"].ToString());
+                    p.Games = Int32.Parse(reader["LostPoints"].ToString());
+
+                    list.Add(p);
+                }
+
+                return list;
             }
             catch
             {
+                return null;
+            }
+        }
+
+        List<Question> LoadQuestions()
+        {
+            List<Question> list = new List<Question>();
+            try
+            {
+                string sql = "select * from Questions";
+                SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Question q = new Question();
+                    //"ID", "Text", "A", "B", "C", "D", "Correct" 
+
+                    q.ID =     Int32.Parse(reader["ID"].ToString());
+                    q.A =       reader["A"].ToString();
+                    q.B =       reader["B"].ToString();
+                    q.C =       reader["C"].ToString();
+                    q.D =       reader["D"].ToString();
+                    q.Correct = Int32.Parse(reader["Correct"].ToString());
+
+                    list.Add(q);
+                }
                 return list;
+            }
+            catch
+            {
+                return null;
             }
         }
 
