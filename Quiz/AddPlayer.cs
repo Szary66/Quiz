@@ -12,15 +12,19 @@ namespace Quiz
 {
     public partial class AddPlayer : Form
     {
-
+        SQLiteManager sqlManager;
         public AddPlayer()
         {
             InitializeComponent();
+            sqlManager = new SQLiteManager();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+            sqlManager.Open();
+            sqlManager.InsertRecord("Player",,)
         }
 
         private void button2_Click(object sender, EventArgs e)
