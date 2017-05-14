@@ -46,16 +46,16 @@ namespace Quiz
             }
         }
 
-        public void CreateTable(string tableName, string[] name, string[] type)
+        public void CreateTable(string tableName, List<string> name, List<string> type)
         {
             try
             {
                 string sql = "create table " + tableName + "(";
-                for (int i = 0; i < name.Length; ++i)
+                for (int i = 0; i < name.Count; ++i)
                 {
                     sql += name[i] + " " + type[i];
 
-                    if (i < name.Length - 1)
+                    if (i < name.Count - 1)
                         sql += ",";
                 }
                 sql += ")";
@@ -69,29 +69,29 @@ namespace Quiz
             }
         }
 
-        public void InsertRecord(string table, string[] column, string[] value)
+        public void InsertRecord(string table, List<string> column, List<string> value)
         {
             try
             {
                 //string sql = "insert into highscores (name, score) values ('Me', 9001)";
-                string sql = "insert into" + table + "(";
-                for (int i = 0; i < column.Length; ++i)
+                string sql = "insert into " + table + "(";
+                for (int i = 0; i < column.Count; ++i)
                 {
                     sql += column[i];
 
-                    if (i < column.Length - 1)
-                        sql += ",";
+                    if (i < column.Count- 1)
+                        sql += ", ";
                     else
                         sql += ")";
                 }
 
                 sql += "values (";
 
-                for (int i = 0; i < value.Length; ++i)
+                for (int i = 0; i < value.Count; ++i)
                 {
                     sql += value[i];
 
-                    if (i < value.Length - 1)
+                    if (i < value.Count - 1)
                         sql += ",";
                     else
                         sql += ")";
@@ -113,6 +113,7 @@ namespace Quiz
             try
             {
                 string sql = "select * from Player";
+
                 SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
 
                 SQLiteDataReader reader = command.ExecuteReader();
