@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(427, 261);
+            this.ClientSize = new System.Drawing.Size(425, 261);
             this.Controls.Add(this.GamesLabel);
             this.Controls.Add(this.LostPointLabel);
             this.Controls.Add(this.WinPointsLabel);

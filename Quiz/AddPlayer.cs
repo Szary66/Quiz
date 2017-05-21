@@ -14,10 +14,16 @@ namespace Quiz {
 
         ListBox playersList;
 
-        public AddPlayer(ListBox players) {
+        public delegate void ShowFrom1();
+        ShowFrom1 showForm1;
+
+        public AddPlayer(ListBox players, ShowFrom1 showForm1) {
             InitializeComponent();
             sqlManager = new SQLiteManager();
+
             playersList = players;
+            this.showForm1 = showForm1;
+
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -45,16 +51,19 @@ namespace Quiz {
 
                 playersList.Items.Add(textBox1.Text);
 
+                showForm1();
                 this.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                showForm1();
                 this.Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e) {
+            showForm1();
             this.Close();
         }
     }

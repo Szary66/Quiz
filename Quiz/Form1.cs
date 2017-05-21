@@ -61,8 +61,9 @@ namespace Quiz {
         }
 
         private void AddBtn_Click(object sender, EventArgs e) {
-            AddPlayer addPlayer = new Quiz.AddPlayer(PlayersList);
+            AddPlayer addPlayer = new Quiz.AddPlayer(PlayersList, ShowMe);
             addPlayer.Show();
+            Hide();
         }
 
         private void ShowMe()
@@ -72,7 +73,14 @@ namespace Quiz {
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
+            AddQuestion addQuestion = new AddQuestion(ShowMe);
+            addQuestion.Show();
+            this.Hide();
+        }
 
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

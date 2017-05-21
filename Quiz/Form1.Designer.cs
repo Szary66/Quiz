@@ -27,7 +27,7 @@
             this.SelectBtn = new System.Windows.Forms.Button();
             this.PlayersList = new System.Windows.Forms.ListBox();
             this.EditBtn = new System.Windows.Forms.Button();
-            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.ExitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddBtn
@@ -37,9 +37,9 @@
             this.AddBtn.ForeColor = System.Drawing.Color.DarkRed;
             this.AddBtn.Location = new System.Drawing.Point(172, 41);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(100, 23);
+            this.AddBtn.Size = new System.Drawing.Size(110, 23);
             this.AddBtn.TabIndex = 0;
-            this.AddBtn.Text = "ADD";
+            this.AddBtn.Text = "ADD PLAYER";
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
@@ -50,7 +50,7 @@
             this.SelectBtn.ForeColor = System.Drawing.Color.DarkRed;
             this.SelectBtn.Location = new System.Drawing.Point(172, 12);
             this.SelectBtn.Name = "SelectBtn";
-            this.SelectBtn.Size = new System.Drawing.Size(100, 23);
+            this.SelectBtn.Size = new System.Drawing.Size(110, 23);
             this.SelectBtn.TabIndex = 1;
             this.SelectBtn.Text = "PLAY";
             this.SelectBtn.UseVisualStyleBackColor = false;
@@ -72,33 +72,34 @@
             this.EditBtn.BackColor = System.Drawing.Color.RoyalBlue;
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EditBtn.ForeColor = System.Drawing.Color.DarkRed;
-            this.EditBtn.Location = new System.Drawing.Point(172, 79);
+            this.EditBtn.Location = new System.Drawing.Point(172, 70);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(100, 23);
+            this.EditBtn.Size = new System.Drawing.Size(110, 23);
             this.EditBtn.TabIndex = 4;
-            this.EditBtn.Text = "QUESTIONS";
+            this.EditBtn.Text = "ADD QUESTIONS";
             this.EditBtn.UseVisualStyleBackColor = false;
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
-            // DeleteBtn
+            // ExitBtn
             // 
-            this.DeleteBtn.BackColor = System.Drawing.Color.RoyalBlue;
-            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.DeleteBtn.ForeColor = System.Drawing.Color.DarkRed;
-            this.DeleteBtn.Location = new System.Drawing.Point(172, 108);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(99, 23);
-            this.DeleteBtn.TabIndex = 5;
-            this.DeleteBtn.Text = "DELETE";
-            this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.ExitBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ExitBtn.ForeColor = System.Drawing.Color.DarkRed;
+            this.ExitBtn.Location = new System.Drawing.Point(172, 108);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(109, 23);
+            this.ExitBtn.TabIndex = 5;
+            this.ExitBtn.Text = "EXIT";
+            this.ExitBtn.UseVisualStyleBackColor = false;
+            this.ExitBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(284, 143);
-            this.Controls.Add(this.DeleteBtn);
+            this.ClientSize = new System.Drawing.Size(293, 143);
+            this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.PlayersList);
             this.Controls.Add(this.SelectBtn);
@@ -115,7 +116,7 @@
         private System.Windows.Forms.Button SelectBtn;
         private System.Windows.Forms.ListBox PlayersList;
         private System.Windows.Forms.Button EditBtn;
-        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button ExitBtn;
     }
 }
 

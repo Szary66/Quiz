@@ -23,9 +23,9 @@ namespace Quiz
             {
                 SQLConnection.Open();
             }
-            catch
+            catch (Exception e)
             {
-
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -40,8 +40,9 @@ namespace Quiz
             {
                 SQLiteConnection.CreateFile("Quiz.sqlite");
             }
-            catch
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return;
             }
         }
@@ -164,6 +165,7 @@ namespace Quiz
                     //"ID", "Text", "A", "B", "C", "D", "Correct" 
 
                     q.ID = Int32.Parse(reader["ID"].ToString());
+                    q.Text = reader["Text"].ToString();
                     q.A = reader["A"].ToString();
                     q.B = reader["B"].ToString();
                     q.C = reader["C"].ToString();
