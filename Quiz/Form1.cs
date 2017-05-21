@@ -27,7 +27,7 @@ namespace Quiz {
                     players = sqliteManager.LoadPlayers();
 
                     foreach (Player player in players)
-                        listBox1.Items.Add(player.Name);
+                        PlayersList.Items.Add(player.Name);
 
                 } else {
                     sqliteManager.CreateDB("Quiz.sqlite");
@@ -52,11 +52,27 @@ namespace Quiz {
             }
         }
         private void SelectBtn_Click(object sender, EventArgs e) {
+            if(PlayersList.SelectedIndex != -1)
+            {
+                GameplayForm gameplay = new GameplayForm(players[PlayersList.SelectedIndex], ShowMe);
+                gameplay.Show();
+                this.Hide();
+            }
         }
 
         private void AddBtn_Click(object sender, EventArgs e) {
-            AddPlayer addPlayer = new Quiz.AddPlayer();
+            AddPlayer addPlayer = new Quiz.AddPlayer(PlayersList);
             addPlayer.Show();
+        }
+
+        private void ShowMe()
+        {
+            this.Show();
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

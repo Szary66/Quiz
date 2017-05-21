@@ -79,7 +79,7 @@ namespace Quiz
                 {
                     sql += column[i];
 
-                    if (i < column.Count- 1)
+                    if (i < column.Count - 1)
                         sql += ", ";
                     else
                         sql += ")";
@@ -140,6 +140,14 @@ namespace Quiz
             }
         }
 
+        public int CountRowsOfTable(string name)
+        {
+            string sql = "select count(ID) from " + name;
+            SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
+
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
         public List<Question> LoadQuestions()
         {
             List<Question> list = new List<Question>();
@@ -169,6 +177,37 @@ namespace Quiz
             catch
             {
                 return null;
+            }
+        }
+
+        public void Update(string table, List<string> column, List<string> value, int ID)
+        {
+            try
+            {
+                //string sql = "insert into highscores (name, score) values ('Me', 9001)";
+                string sql = "update " + table + " set ";
+                for (int i = 0; i < column.Count; ++i)
+                {
+                    sql += column[i];
+
+                    if (i < column.Count - 1)
+                        sql += " = ";
+
+                    sql += value[i];
+
+                    if (i < value.Count - 1)
+                        sql += ",";
+                }
+
+                sql += " where ID = " + ID.ToString();
+                
+                SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
+                command.ExecuteNonQuery();
+            }
+            catch (FieldAccessException e)
+            {
+                MessageBox.Show(e.Message);
+                return;
             }
         }
     }

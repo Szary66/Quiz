@@ -11,33 +11,47 @@ using System.Windows.Forms;
 namespace Quiz {
     public partial class AddPlayer : Form {
         SQLiteManager sqlManager;
-        public AddPlayer() {
+
+        ListBox playersList;
+
+        public AddPlayer(ListBox players) {
             InitializeComponent();
             sqlManager = new SQLiteManager();
+            playersList = players;
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            List<string> colums = new List<string>();
-            List<string> values = new List<string>();
+            try
+            {
+                List<string> colums = new List<string>();
+                List<string> values = new List<string>();
 
-            //"ID", "Name", "WinPoints", "LostPoints", "Games" 
+                //"ID", "Name", "WinPoints", "LostPoints", "Games" 
 
-            colums.Add("ID");
-            colums.Add("Name");
-            colums.Add("WinPoints");
-            colums.Add("LostPoints");
-            colums.Add("Games");
+                colums.Add("ID");
+                colums.Add("Name");
+                colums.Add("WinPoints");
+                colums.Add("LostPoints");
+                colums.Add("Games");
 
-            values.Add("0");
-            values.Add("'" + textBox1.Text + "'");
-            values.Add("0");
-            values.Add("0");
-            values.Add("0");
+                sqlManager.Open();
+                values.Add(sqlManager.CountRowsOfTable("Player").ToString());
+                values.Add("'" + textBox1.Text + "'");
+                values.Add("0");
+                values.Add("0");
+                values.Add("0");
 
+                sqlManager.InsertRecord("Player", colums, values);
 
+                playersList.Items.Add(textBox1.Text);
 
-            sqlManager.Open();
-            sqlManager.InsertRecord("Player", colums, values);
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) {

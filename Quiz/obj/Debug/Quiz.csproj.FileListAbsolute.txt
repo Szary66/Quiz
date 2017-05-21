@@ -37,3 +37,5 @@ B:\APROJECTS\C#\Quiz\Quiz\bin\Debug\EntityFramework.xml
 B:\APROJECTS\C#\Quiz\Quiz\bin\Debug\EntityFramework.SqlServer.xml
 B:\APROJECTS\C#\Quiz\Quiz\bin\Debug\System.Data.SQLite.xml
 B:\APROJECTS\C#\Quiz\Quiz\obj\Debug\Quiz.AddPlayer.resources
+B:\APROJECTS\C#\Quiz\Quiz\bin\Debug\System.Data.SQLite.dll.config
+B:\APROJECTS\C#\Quiz\Quiz\obj\Debug\Quiz.AddQuestion.resources

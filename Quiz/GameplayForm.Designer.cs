@@ -38,6 +38,14 @@
             this.DLabel = new System.Windows.Forms.Label();
             this.CLabel = new System.Windows.Forms.Label();
             this.QuitBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LabelName = new System.Windows.Forms.Label();
+            this.WinPointsLabel = new System.Windows.Forms.Label();
+            this.LostPointLabel = new System.Windows.Forms.Label();
+            this.GamesLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ABtn
@@ -51,6 +59,7 @@
             this.ABtn.TabIndex = 0;
             this.ABtn.Text = "A";
             this.ABtn.UseVisualStyleBackColor = false;
+            this.ABtn.Click += new System.EventHandler(this.ABtn_Click);
             // 
             // QuestionLabel
             // 
@@ -76,6 +85,7 @@
             this.BBtn.TabIndex = 2;
             this.BBtn.Text = "B";
             this.BBtn.UseVisualStyleBackColor = false;
+            this.BBtn.Click += new System.EventHandler(this.BBtn_Click);
             // 
             // CBtn
             // 
@@ -88,6 +98,7 @@
             this.CBtn.TabIndex = 3;
             this.CBtn.Text = "C";
             this.CBtn.UseVisualStyleBackColor = false;
+            this.CBtn.Click += new System.EventHandler(this.CBtn_Click);
             // 
             // DBtn
             // 
@@ -100,6 +111,7 @@
             this.DBtn.TabIndex = 4;
             this.DBtn.Text = "D";
             this.DBtn.UseVisualStyleBackColor = false;
+            this.DBtn.Click += new System.EventHandler(this.DBtn_Click);
             // 
             // ALabel
             // 
@@ -164,13 +176,94 @@
             this.QuitBtn.TabIndex = 9;
             this.QuitBtn.Text = "Exit";
             this.QuitBtn.UseVisualStyleBackColor = false;
+            this.QuitBtn.Click += new System.EventHandler(this.QuitBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(279, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(279, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Win points";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(279, 72);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Lost points";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(279, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Games";
+            // 
+            // LabelName
+            // 
+            this.LabelName.AutoSize = true;
+            this.LabelName.Location = new System.Drawing.Point(351, 13);
+            this.LabelName.Name = "LabelName";
+            this.LabelName.Size = new System.Drawing.Size(36, 13);
+            this.LabelName.TabIndex = 14;
+            this.LabelName.Text = "Player";
+            // 
+            // WinPointsLabel
+            // 
+            this.WinPointsLabel.AutoSize = true;
+            this.WinPointsLabel.Location = new System.Drawing.Point(351, 35);
+            this.WinPointsLabel.Name = "WinPointsLabel";
+            this.WinPointsLabel.Size = new System.Drawing.Size(13, 13);
+            this.WinPointsLabel.TabIndex = 15;
+            this.WinPointsLabel.Text = "0";
+            // 
+            // LostPointLabel
+            // 
+            this.LostPointLabel.AutoSize = true;
+            this.LostPointLabel.Location = new System.Drawing.Point(351, 72);
+            this.LostPointLabel.Name = "LostPointLabel";
+            this.LostPointLabel.Size = new System.Drawing.Size(13, 13);
+            this.LostPointLabel.TabIndex = 16;
+            this.LostPointLabel.Text = "0";
+            // 
+            // GamesLabel
+            // 
+            this.GamesLabel.AutoSize = true;
+            this.GamesLabel.Location = new System.Drawing.Point(351, 98);
+            this.GamesLabel.Name = "GamesLabel";
+            this.GamesLabel.Size = new System.Drawing.Size(13, 13);
+            this.GamesLabel.TabIndex = 17;
+            this.GamesLabel.Text = "0";
             // 
             // GameplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(427, 261);
+            this.Controls.Add(this.GamesLabel);
+            this.Controls.Add(this.LostPointLabel);
+            this.Controls.Add(this.WinPointsLabel);
+            this.Controls.Add(this.LabelName);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.QuitBtn);
             this.Controls.Add(this.DLabel);
             this.Controls.Add(this.CLabel);
@@ -200,5 +293,13 @@
         private System.Windows.Forms.Label DLabel;
         private System.Windows.Forms.Label CLabel;
         private System.Windows.Forms.Button QuitBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LabelName;
+        private System.Windows.Forms.Label WinPointsLabel;
+        private System.Windows.Forms.Label LostPointLabel;
+        private System.Windows.Forms.Label GamesLabel;
     }
 }

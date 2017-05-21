@@ -1,6 +1,6 @@
 ﻿namespace Quiz
 {
-    partial class AddPlayer
+    partial class AddQuestion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,48 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddBTN = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CantelBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // AddBTN
-            // 
-            this.AddBTN.Location = new System.Drawing.Point(135, 64);
-            this.AddBTN.Name = "AddBTN";
-            this.AddBTN.Size = new System.Drawing.Size(75, 23);
-            this.AddBTN.TabIndex = 0;
-            this.AddBTN.Text = "Add";
-            this.AddBTN.UseVisualStyleBackColor = true;
-            this.AddBTN.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(13, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.Size = new System.Drawing.Size(314, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Question text";
             // 
-            // CantelBTN
-            // 
-            this.CantelBTN.Location = new System.Drawing.Point(13, 64);
-            this.CantelBTN.Name = "CantelBTN";
-            this.CantelBTN.Size = new System.Drawing.Size(75, 23);
-            this.CantelBTN.TabIndex = 2;
-            this.CantelBTN.Text = "Cantel";
-            this.CantelBTN.UseVisualStyleBackColor = true;
-            this.CantelBTN.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // AddPlayer
+            // AddQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 105);
-            this.Controls.Add(this.CantelBTN);
+            this.ClientSize = new System.Drawing.Size(339, 261);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.AddBTN);
-            this.Name = "AddPlayer";
-            this.Text = "AddPlayer";
+            this.Name = "AddQuestion";
+            this.Text = "AddQuestion";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,8 +54,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button AddBTN;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button CantelBTN;
     }
 }
