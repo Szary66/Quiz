@@ -176,8 +176,9 @@ namespace Quiz
                 }
                 return list;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }
@@ -191,10 +192,7 @@ namespace Quiz
                 for (int i = 0; i < column.Count; ++i)
                 {
                     sql += column[i];
-
-                    if (i < column.Count - 1)
-                        sql += " = ";
-
+                    sql += " = ";
                     sql += value[i];
 
                     if (i < value.Count - 1)
@@ -202,7 +200,7 @@ namespace Quiz
                 }
 
                 sql += " where ID = " + ID.ToString();
-                
+
                 SQLiteCommand command = new SQLiteCommand(sql, SQLConnection);
                 command.ExecuteNonQuery();
             }

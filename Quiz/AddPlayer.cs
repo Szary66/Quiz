@@ -11,17 +11,14 @@ using System.Windows.Forms;
 namespace Quiz {
     public partial class AddPlayer : Form {
         SQLiteManager sqlManager;
-
-        ListBox playersList;
-
+        
         public delegate void ShowFrom1();
         ShowFrom1 showForm1;
 
-        public AddPlayer(ListBox players, ShowFrom1 showForm1) {
+        public AddPlayer(ShowFrom1 showForm1) {
             InitializeComponent();
             sqlManager = new SQLiteManager();
-
-            playersList = players;
+            
             this.showForm1 = showForm1;
 
         }
@@ -48,8 +45,7 @@ namespace Quiz {
                 values.Add("0");
 
                 sqlManager.InsertRecord("Player", colums, values);
-
-                playersList.Items.Add(textBox1.Text);
+                
 
                 showForm1();
                 this.Close();

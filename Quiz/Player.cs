@@ -26,12 +26,8 @@ namespace Quiz
         public int LostPoints { get; set; }
         public int Games { get; set; }
 
-        public int ID
-        {
-            get { return id; }
-            set { if (id == -1) id = value; }
-        }
+        public int ID { get; set; }
     }
-    
-   
+
+
 }

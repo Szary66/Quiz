@@ -16,6 +16,7 @@ namespace Quiz
         ShowForm1 showForm1;
 
         SQLiteManager sqlManager;
+        List<Question> questions;
         public AddQuestion(ShowForm1 showForm1)
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace Quiz
                         values.Add(CorrectAnswer.Text);
 
                         sqlManager.InsertRecord("Questions", columns, values);
+
                         sqlManager.Close();
 
                         ClearAllTextboxs();

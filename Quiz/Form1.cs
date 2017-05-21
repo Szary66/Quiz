@@ -61,13 +61,20 @@ namespace Quiz {
         }
 
         private void AddBtn_Click(object sender, EventArgs e) {
-            AddPlayer addPlayer = new Quiz.AddPlayer(PlayersList, ShowMe);
+            AddPlayer addPlayer = new Quiz.AddPlayer(ShowMe);
             addPlayer.Show();
             Hide();
         }
 
         private void ShowMe()
         {
+            players = sqliteManager.LoadPlayers();
+
+            PlayersList.Items.Clear();
+
+            foreach (Player player in players)
+                PlayersList.Items.Add(player.Name);
+
             this.Show();
         }
 

@@ -16,8 +16,8 @@ namespace Quiz
         List<Question> questions;
         Question currentQuestion;
         SQLiteManager sqlManager;
-        
-        public delegate void ShowForm1 ();
+
+        public delegate void ShowForm1();
         ShowForm1 showForm1;
 
         public GameplayForm(Player player, ShowForm1 showForm1)
@@ -26,17 +26,24 @@ namespace Quiz
 
             this.player = player;
             LabelName.Text = this.player.Name;
+            UpdateLabelsResults();
 
             this.showForm1 = showForm1;
 
             questions = new List<Question>();
             sqlManager = new SQLiteManager();
 
+            sqlManager.Open();
             questions = sqlManager.LoadQuestions();
+            sqlManager.Close();
+
+            UpdateQuestion();
         }
 
         private void QuitBtn_Click(object sender, EventArgs e)
         {
+            UpdateToDatabase();
+
             showForm1();
             this.Close();
         }
@@ -50,6 +57,7 @@ namespace Quiz
 
             player.Games++;
             UpdateLabelsResults();
+            UpdateQuestion();
         }
 
         private void BBtn_Click(object sender, EventArgs e)
@@ -61,6 +69,7 @@ namespace Quiz
 
             player.Games++;
             UpdateLabelsResults();
+            UpdateQuestion();
         }
 
         private void CBtn_Click(object sender, EventArgs e)
@@ -72,6 +81,7 @@ namespace Quiz
 
             player.Games++;
             UpdateLabelsResults();
+            UpdateQuestion();
         }
 
         private void DBtn_Click(object sender, EventArgs e)
@@ -83,6 +93,7 @@ namespace Quiz
 
             player.Games++;
             UpdateLabelsResults();
+            UpdateQuestion();
         }
 
         private void UpdateLabelsResults()
@@ -95,12 +106,16 @@ namespace Quiz
         private void UpdateQuestion()
         {
             if (questions.Count == 0)
+            {
+                sqlManager.Open();
                 questions = sqlManager.LoadQuestions();
+                sqlManager.Close();
+            }
 
             Random r = new Random();
             currentQuestion = questions[r.Next(0, questions.Count - 1)];
             questions.Remove(currentQuestion);
-            
+
             ShowQuestionOnLabels();
         }
 
@@ -112,6 +127,26 @@ namespace Quiz
             BLabel.Text = currentQuestion.B;
             CLabel.Text = currentQuestion.C;
             DLabel.Text = currentQuestion.D;
+        }
+
+        private void UpdateToDatabase()
+        {
+            List<string> columns = new List<string>();
+            List<string> values = new List<string>();
+            
+            columns.Add("Name");
+            columns.Add("WinPoints");
+            columns.Add("LostPoints");
+            columns.Add("Games");
+            
+            values.Add("'"+player.Name+"'");
+            values.Add(player.WinPoints.ToString());
+            values.Add(player.LostPoints.ToString());
+            values.Add(player.Games.ToString());
+
+            sqlManager.Open();
+            sqlManager.Update("Player", columns, values, player.ID);
+            sqlManager.Close();
         }
     }
 }
